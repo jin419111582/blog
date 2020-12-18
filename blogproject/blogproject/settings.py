@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #实现子用户的注册
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +56,7 @@ ROOT_URLCONF = 'blogproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],#设置模板路径
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -129,7 +131,7 @@ STATICFILES_DIRS =[
     os.path.join(BASE_DIR, 'static')
 ]
 
-#redis设置
+#redis配置
 
 CACHES = {
     "default": { # 默认
@@ -193,3 +195,6 @@ LOGGING = {
         },
     }
 }
+#替换系统user，使用自己定义的user
+#配置信息为’子应用名.模型类型‘
+AUTH_USER_MODEL='users.User'
