@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from django.conf.global_settings import DATA_UPLOAD_MAX_MEMORY_SIZE
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -76,6 +78,8 @@ WSGI_APPLICATION = 'blogproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -84,8 +88,11 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': '419111',
         'NAME': 'itweiting_blog'
+
     }
+
 }
+
 
 
 # Password validation
@@ -155,6 +162,7 @@ SESSION_CACHE_ALIAS = "session"
 
 
 
+
 #log
 LOGGING = {
     'version': 1,
@@ -190,12 +198,15 @@ LOGGING = {
     },
     'loggers': {  # 日志器
         'django': {  # 定义了一个名为django的日志器
-            'handlers': ['console','file'],  # 可以同时向终端与文件中输出日志
+            'handlers': ['file'],  # 可以同时向终端与文件中输出日志'console',
             'propagate': True,  # 是否继续传递日志信息
             'level': 'INFO',  # 日志器接收的最低日志级别
         },
     }
 }
+
+
+
 #替换系统user，使用自己定义的user
 #配置信息为’子应用名.模型类型‘
 AUTH_USER_MODEL = 'users.User'

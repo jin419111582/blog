@@ -76,4 +76,4 @@ if __name__ == '__main__':
     # 参数1，测试手机号
     # 参数2，测试验证码
     # 参数3，测试验证码时效
-    ccp.send_template_sms('17339982245', ['1234', 5], 1)
+    ccp.send_template_sms('mobile', ['12345', 5], 1)

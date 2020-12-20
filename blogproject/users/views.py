@@ -114,16 +114,17 @@ from libs.yuntongxun.sms import CCP
 
 class SmsCodeView(View):
     def get(self, request):
-        redis_conn = get_redis_connection('default')
+
         # 1.参数接收（查询字符串的形式传递过来）
         mobile = request.GET.get('mobile')
         image_code = request.GET.get('image_code')
         uuid = request.GET.get('uuid')
 
 
-
+#18294202694
         # 2.参数的验证
         #  验证参数是否齐全
+        redis_conn = get_redis_connection('default')
         if not all([mobile, image_code, uuid]):
             return JsonResponse({'code': RETCODE.NECESSARYPARAMERR, 'errmsg': '缺少是参数'})
             # 连接redis，获取redis中的图片验证码
@@ -156,6 +157,10 @@ class SmsCodeView(View):
         # 6. 返回响应
         return JsonResponse({'code': RETCODE.OK, 'errmsg': '短信发送成功'})
 # jxg419111582
+
+
+
+
 
 
 #登录实现
@@ -283,6 +288,8 @@ class ForgetPasswordView(View):
 
 
 from django.contrib.auth.mixins import LoginRequiredMixin
+
+
 class UserCenterView(LoginRequiredMixin,View):
     def get(self,request):
         # 获得登录用户的信息

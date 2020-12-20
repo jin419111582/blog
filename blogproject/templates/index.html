@@ -5,7 +5,7 @@
     <!-- 网站采用的字符编码 -->
     <meta charset="utf-8">
     <!-- 网站标题 -->
-    <title>首页</title>
+    <title>漫落</title>
     {% load staticfiles %}
     <!-- 引入bootstrap的css文件 -->
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
@@ -29,7 +29,7 @@
     <div class="container">
         <!-- 导航栏商标 -->
         <div>
-            <a class="navbar-brand" href="{% url 'home:index' %}">个人博客</a>
+            <a class="navbar-brand" href="{% url 'home:index' %}">漫落个人博客</a>
         </div>
         <!-- 分类 -->
         <div class="collapse navbar-collapse">
@@ -37,12 +37,12 @@
                 <ul class="nav navbar-nav">
                     {% for cat in categories %}
                         {% if cat.id == category.id %}
-                            <li class="nav-item active">
-                                <a class="nav-link mr-2" href="/?cat_id={{ cat.id }}">{{ cat.title }}</a>
+                            <li class="nav-item active l-5">
+                                <a class="nav-link mr-8" href="/?cat_id={{ cat.id }}">{{ cat.title }}</a>
                             </li>
                         {% else %}
-                             <li class="nav-item">
-                        <a class="nav-link mr-2" href="/?cat_id={{ cat.id }}">{{ cat.title }}</a>
+                             <li class="nav-item l-5">
+                        <a class="nav-link mr-8" href="/?cat_id={{ cat.id }}">{{ cat.title }}</a>
                     </li>
                         {% endif %}
                     {% endfor %}
@@ -117,7 +117,7 @@
 <!-- Footer -->
 <footer class="py-3 bg-dark" id="footer">
     <div class="container">
-        <h5 class="m-0 text-center text-white">Copyright @ qiruihua</h5>
+        <h7 class="m-0 text-center text-white">漫落——————记录你的每时每刻。</h7>
     </div>
 </footer>
 </div>
