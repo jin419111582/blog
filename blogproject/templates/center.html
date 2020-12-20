@@ -60,11 +60,11 @@
                     <input type="text" class="form-control" id="username" name="username" value="{{ username }}" >
                 </div>
                 <!--<br><h5 class="col-md-4">暂无头像</h5><br>-->
-                <br> <div class="col-md-4">头像</div>
+                <br> <div class="col-md-4">这是一个默认头像</div>
                 {% if avatar %}
                     <img src="{{ avatar }}" style="max-width: 20%;" class="col-md-4"><br>
                 {% else %}
-                    <img src="{% static 'img/mei.png' %}" style="max-width: 20%;" class="col-md-4"><br>
+                    <img src="{% static 'img/moren.png' %}" style="max-width: 20%;" class="col-md-4"><br>
                 {% endif %}
 
                     <!-- avatar -->
@@ -95,7 +95,7 @@
 <!-- Footer -->
 <footer class="py-3 bg-dark" id="footer">
     <div class="container">
-        <h7 class="m-0 text-center text-white">漫落——————记录你的每时每刻。</h7>
+        <h4 class="m-0 text-center text-white">漫落——————记录你的每时每刻。</h4>
     </div>
 </footer>
 </div>

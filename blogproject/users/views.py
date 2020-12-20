@@ -76,7 +76,7 @@ class RegisterView(View):
 from libs.captcha.captcha import captcha
 from django.http.response import HttpResponseBadRequest
 from django_redis import get_redis_connection
-from django.http import HttpResponse
+from django.http import HttpResponse, response
 
 
 class ImageCodeView(View):
@@ -199,11 +199,11 @@ class LoginView(View):
     # 6.为了首页显示我们需要设置一些cookie信息
 
     # 根据next参数来进行页面的跳转
-        next_page = request.GET.get('next')
-        if next_page:
-            response = redirect(next_page)
-        else:
-            response = redirect(reverse('home:index'))
+    #     next_page = request.GET.get('next')
+    #     if next_page:
+    #         response = redirect(next_page)
+    #     else:
+        response = redirect(reverse('home:index'))
 
         if remember != 'on':  # 没有记住用户信息
         # 浏览器关闭之后
@@ -349,14 +349,7 @@ class WriteBlogView(LoginRequiredMixin,View):
         return render(request,'write_blog.html',context=context)
 
     def post(self,request):
-        """
-        # 1.接收数据
-        # 2.验证数据
-        # 3.数据入库
-        # 4.跳转到指定页面（暂时首页）
-        :param request:
-        :return:
-        """
+
         # 1.接收数据
         avatar=request.FILES.get('avatar')
         title=request.POST.get('title')

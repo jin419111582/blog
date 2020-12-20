@@ -17,7 +17,7 @@ class IndexView(View):
             return HttpResponseNotFound('没有此分类')
         # 4.获取分页参数
         page_num=request.GET.get('page_num',1)
-        page_size=request.GET.get('page_size',10)
+        page_size=request.GET.get('page_size',5)
         # 5.根据分类信息查询文章数据
         articles=Article.objects.filter(category=category)
         # 6.创建分页器
