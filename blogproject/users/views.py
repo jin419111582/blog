@@ -222,6 +222,7 @@ class LoginView(View):
 #退出登录
 from django.contrib.auth import logout
 class LogoutView(View):
+
     def get(self, request):
         # 1.session数据清除
         logout(request)
